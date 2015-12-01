@@ -1,0 +1,36 @@
+Hypothèses
+	
+	Basiques :
+		Aucune bombe nucleaire tombe sur les machines
+		La communication entre les machines fonctionne
+		Machine (Serveur + BD) réponde aux requêtes de manière attendue
+		À un instant donnée "t" tous les machines sont dans le même état
+			"t" c'est-à-dire après le traitement d'une requête
+			peut être le but du TP en fait
+
+	Rêquetes : 
+		Les rêquetes contiennent une information pour maintenir l'ordre
+		Plutôt comme TCP/IP fait
+			<<ou>>
+		L'ordre est défini par des messages suplementaires
+		Requetês d'écriture preservent l'ordre
+		Une écriture est composé de:
+			Une lécture
+			Vérification de l'état pour voir si l'écriture est encore valide
+			La vrai écriture
+
+	Timeout :
+		Système de timeout entre les messages
+		Si une machine ne répond pas après un timeout determiné, elle est consideré comme étant en panne
+
+	Panne :
+		Si une machine tombe en panne
+			On ne traite pas la requête
+			On reboote la machine
+			On la charge avec les données d'une autre machine 
+
+	
+
+
+
+

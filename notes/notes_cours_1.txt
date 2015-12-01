@@ -1,0 +1,52 @@
+Notes Cours 1
+
+Tolérance aux fautes par réplication
+	Chez Amazon
+	Base de donées -> client fait lecture, écriture
+	Plusieurs copies des BD pour un produit à vendre
+	Lecture peut etre fait dans un seul copie (90%)
+	Par contre les écritures (10%) doivent etre fait dans:
+		toutes les copies
+		et dans la meme ordre pour plusieur requetes
+	
+	TP: but c'est de faire la couche qui se communique avec la BD
+		assurer l'éxecution des memes choses dans la meme ordre
+		algo, implem, performance (combien d'ecritures par sec)
+		limite par la machine moins vite
+		3 machines
+		hypotheses sur comment la machine tombe en panne (clairement indiqués)
+			machines
+				comportement
+				l'heure, clock (quand est que ça va fonctionner)
+			réseau
+			requête de clients
+		problèmes qui peuvent arriver
+			hardware buggué
+			virus
+			bit flip
+			rayonnement
+			erreurs de réseau (MD5)
+		on suppose que les machines suivent le protocole
+
+	Cas SLE
+		mémoire partagée
+		processus qui font des accès
+		coût très grand
+
+		technologies pour substituer dès qu'on a plusieurs coeurs, SoC
+			Intel SSC
+			GALS
+			NoC
+
+	Travail à faire
+		Hypothèses
+		Algo (ce que les machines font)	|__ black box
+		Preuve (Optionnal)				|
+		Implémentation
+		Eval de perf
+
+	Protocoles
+		UDP ~~non fiable
+		TCP (FIFO) point-à-point ~~fiable
+		IP Multi
+		Pigeon voyageur
