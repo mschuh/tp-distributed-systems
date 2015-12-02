@@ -1,0 +1,6 @@
+Question
+	Est-ce qu'une réponse donnée à un client à t0 peut ou pas être refleté dans l'état des machines vivantes à t0+x?
+
+Pour la semaine prochaine
+	Un document court (2 pages) qui présente votre protocole et vous hypothèses
+	Implementation du protocole (début)
