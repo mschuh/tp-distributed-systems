@@ -1,0 +1,39 @@
+We have K processes
+
+struct msg {
+	timestamp;
+	pid;
+	data;
+}
+
+process
+	timestamp = 0
+	priority_queue[msg] // ordered by timestamp, ties are broken by fixed pid priority
+
+	while true
+		if received a request from client
+			timestamp++
+			queue.add(request)
+			broadcast(request)
+
+		if received a message
+			queue.add(message)
+			timestamp = max(message.timestamp, timestamp)
+			timestamp++
+			if msg.type != ack
+				broadcast(ack(message, timestamp))
+
+		head_pid = head(priority_queue).pid
+		
+		ok_to_write_head_to_db = true
+
+		for all i in (0, k-1)
+			if i != head_pid
+				if priority_queue.contains(pid = i, timestamp > head(priority_queue).timestamp)
+					continue
+				else
+					ok_to_write_head_to_db = false
+					break
+
+		if ok_to_write_head_to_db
+			write_to_db(priority_queue.pop)
