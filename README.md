@@ -1,2 +1,2 @@
-# tp_fault_tolerance
+# tp-distributed-systems
 Distributed Systems TP
